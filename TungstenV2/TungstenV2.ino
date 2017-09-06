@@ -6,7 +6,7 @@
 * Adjustable ROF, ammo capacity, burst per shot. Ammo counter. Combo mode
 *
 * created  16 Jun 2017
-* modified 05 Sep 2017
+* modified 06 Sep 2017
 * by TungstenEXE
 *
 * If you find my code useful, do support me by subscribing my YouTube Channel, thanks.
@@ -401,11 +401,6 @@ void triggerPressedHandle(int caseModeFire) {
     // Start Firing
     pusherESC.writeMicroseconds(pusherThrottle);    
     isFiring = true;
-  } else if (magOut) {
-    if (ammoLimit < AMMO_UPPER_LIMIT) {
-      ammoLimit++;
-      updateMagOutDisplay();
-    }
   }
 }
 
