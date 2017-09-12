@@ -127,7 +127,7 @@ boolean       tungstenV2Mode      = false;       // true when V2 mode is selecte
 boolean       v2ModeFullAuto      = false;       // true when V2 mode is on and is on full auto firing
 
 unsigned long pusherTimerStart    = 0;           // track how long had the pusher being out
-const    long pusherOutThreshold  = 80;          // threshold for deciding should the pusher return module kick in
+const    long pusherOutThreshold  = 85;          // threshold for deciding should the pusher return module kick in
 
 Servo         pusherESC;
 Servo         motorsESC;
@@ -470,7 +470,7 @@ void settingPressedHandle() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Function: updateLimitDisplay
+// Function: pusherReturnCheck
 //           
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 void pusherReturnCheck() {
