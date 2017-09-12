@@ -6,7 +6,7 @@
 * Adjustable ROF, ammo capacity, burst per shot. Ammo counter. Combo mode
 *
 * created  16 Jun 2017
-* modified 06 Sep 2017
+* modified 12 Sep 2017
 * by TungstenEXE
 *
 * If you find my code useful, do support me by subscribing my YouTube Channel, thanks.
@@ -127,8 +127,10 @@ boolean       tungstenV2Mode      = false;       // true when V2 mode is selecte
 boolean       v2ModeFullAuto      = false;       // true when V2 mode is on and is on full auto firing
 
 unsigned long pusherTimerStart    = 0;           // track how long had the pusher being out
-const    long pusherOutThreshold  = 85;          // threshold for deciding should the pusher return module kick in
-
+const    long pusherOutThreshold  = 85;          // threshold for deciding should the pusher return module kick in.
+                                                 // If the estimated shot per second is 10, it means each shot took around
+                                                 // 100 millisecond, which mean pusherOutThreshold should be setted 
+                                                 // slightly about 100 millisecond
 Servo         pusherESC;
 Servo         motorsESC;
 
