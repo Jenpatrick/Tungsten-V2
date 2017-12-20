@@ -127,7 +127,7 @@ boolean       tungstenV2Mode      = false;       // true when V2 mode is selecte
 boolean       v2ModeFullAuto      = false;       // true when V2 mode is on and is on full auto firing
 
 unsigned long pusherTimerStart    = 0;           // track how long had the pusher being out
-const    long pusherOutThreshold  = 85;          // threshold for deciding should the pusher return module kick in.
+const    long pusherOutThreshold  = 90;          // threshold for deciding should the pusher return module kick in.
                                                  // If the estimated shot per second is 10, it means each shot took around
                                                  // 100 millisecond, which mean pusherOutThreshold should be setted 
                                                  // slightly about 100 millisecond
@@ -477,7 +477,7 @@ void settingPressedHandle() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 void pusherReturnCheck() {
   if (isPusherOut) {
-    if ((pusherTimerStart != 0) && ((millis() - pusherTimerStart) >= pusherOutThreshold)) {
+    if ((pusherTimerStart != 0) && ((millis() - pusherTimerStart) >= (pusherOutThreshold + returnDelay))) {
       motorsESC.writeMicroseconds(THROTTLE_MOTORS_MAX);      
       pusherESC.writeMicroseconds(THROTTLE_PUSHER_REDUCE);
       pusherTimerStart = 0;
